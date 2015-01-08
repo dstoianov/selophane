@@ -1,10 +1,10 @@
 package org.selophane.elements.helpers;
 
-import org.selophane.elements.*;
-import org.selophane.elements.impl.internal.ElementFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.selophane.elements.*;
+import org.selophane.elements.impl.internal.ElementFactory;
 
 import java.util.List;
 
@@ -13,36 +13,26 @@ import java.util.List;
  */
 public class FormTestObject {
 
-    private WebDriver driver;
-
     public TextInput texta;
-
     @FindBy(id = "test1")
     public Element element;
-
     @FindBy(id = "test1")
     public WebElement webElement;
-
     @FindBy(id = SelectFragment.ID_LOCATOR)
     public SelectFragment selectFragment;
-
     @FindBy(id = "checkbox")
     public CheckBox checkbox;
-    
     @FindBy(id = "table")
     public Table table;
-
     @FindBy(tagName = "label")
     public List<Label> labels;
-
     @FindBy(tagName = "label")
     public List<Element> elementLabels;
-
     @FindBy(tagName = "label")
     public List<WebElement> webElementLabels;
-
     @FindBy(css = "label[for='textb']")
     public WebElement labelForTextB;
+    private WebDriver driver;
 
     public FormTestObject(WebDriver driver) {
         this.driver = driver;
@@ -62,8 +52,10 @@ public class FormTestObject {
         PageLoader.get(driver, "forms.html");
     }
 
-    public void close() {
-        driver.close();
+    public void quit() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
 }

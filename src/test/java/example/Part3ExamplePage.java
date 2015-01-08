@@ -9,6 +9,7 @@ import org.selophane.elements.impl.internal.ElementFactory;
  * A page that can be initialized statically.
  */
 public class Part3ExamplePage {
+
     @FindBy(id = "checkbox")
     public static CheckBox checkBox;
 

@@ -33,6 +33,6 @@ public class Part1ExampleTest {
         wrappedCheckBox.check();
         Assert.assertTrue(wrappedCheckBox.isChecked());
 
-        driver.close();
+        driver.quit();
     }
 }

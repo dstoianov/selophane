@@ -1,10 +1,6 @@
 package org.selophane.elements;
 
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.openqa.selenium.WebDriver;
@@ -25,7 +21,13 @@ public class FormTest {
         driver = new HtmlUnitDriver();
         testObject = FormTestObject.initialize(driver);
     }
-    
+
+    @AfterClass
+    public static void afterClass() {
+        driver.quit();
+        testObject.quit();
+    }
+
     @Before
     public void beforeTest() {
     	testObject.get();
@@ -129,14 +131,9 @@ public class FormTest {
     public void tableGetBodyCell() {
     	Assert.assertEquals("$80", testObject.table.getCellAtIndex(2, 1).getText());
     }
-    
+
     @Test
     public void tableGetFooterCell() {
     	Assert.assertEquals("Sum", testObject.table.getCellAtIndex(3, 0).getText());
-    }
-
-    @AfterClass
-    public static void afterClass() {
-        driver.close();
     }
 }

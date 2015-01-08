@@ -21,6 +21,6 @@ public class Part3ExampleTest {
         Part3ExamplePage.checkBox.check();
         Assert.assertTrue(Part3ExamplePage.checkBox.isChecked());
 
-        localDriver.close();
+        localDriver.quit();
     }
 }

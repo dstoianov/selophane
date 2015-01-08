@@ -1,11 +1,11 @@
 package org.selophane.elements.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.selophane.elements.Table;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Table wrapper.
@@ -29,8 +29,7 @@ public class TableImpl extends ElementImpl implements Table {
 	@Override
 	public int getColumnCount() {
 
-		return findElement(By.cssSelector("tr")).findElements(
-				By.cssSelector("*")).size();
+		return findElement(By.cssSelector("tr")).findElements(By.cssSelector("*")).size();
 		// Would ideally do:
 		// return findElements(By.cssSelector("tr:first-of-type > *"));
 		// however HTMLUnitDriver does not support CSS3
@@ -51,9 +50,7 @@ public class TableImpl extends ElementImpl implements Table {
 		else if ((cells = row.findElements(By.tagName("th"))).size() > 0) {
 			return cells.get(colIdx);
 		} else {
-			final String error = String
-					.format("Could not find cell at row: %s column: %s",
-							rowIdx, colIdx);
+			final String error = String.format("Could not find cell at row: %s column: %s", rowIdx, colIdx);
 			throw new RuntimeException(error);
 		}
 	}
