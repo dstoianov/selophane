@@ -13,26 +13,36 @@ import java.util.List;
  */
 public class FormTestObject {
 
+    private WebDriver driver;
+
     public TextInput texta;
+
     @FindBy(id = "test1")
     public Element element;
+
     @FindBy(id = "test1")
     public WebElement webElement;
+
     @FindBy(id = SelectFragment.ID_LOCATOR)
     public SelectFragment selectFragment;
+
     @FindBy(id = "checkbox")
     public CheckBox checkbox;
+
     @FindBy(id = "table")
     public Table table;
+
     @FindBy(tagName = "label")
     public List<Label> labels;
+
     @FindBy(tagName = "label")
     public List<Element> elementLabels;
+
     @FindBy(tagName = "label")
     public List<WebElement> webElementLabels;
+
     @FindBy(css = "label[for='textb']")
     public WebElement labelForTextB;
-    private WebDriver driver;
 
     public FormTestObject(WebDriver driver) {
         this.driver = driver;
